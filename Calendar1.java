@@ -1,3 +1,6 @@
+/** 
+ * Prints the calendars of all the years in the 20th century.
+ */
 public class Calendar1 
 {	
     
@@ -15,13 +18,15 @@ public class Calendar1
 	public static void main(String args[]) 
 	{
 		int debugDaysCounter = 0; 
-		int counter=0;
-		while (year<=1999) 
+		while (year<2000) 
 		{
-			if (dayOfWeek==1 && dayOfMonth==1)
+			if (dayOfWeek==1)
 			{
 				System.out.println(dayOfMonth + "/" + month + "/" + year+"   sunday");
-				debugDaysCounter++;
+				if (dayOfMonth==1)
+				{
+					debugDaysCounter++;
+				}
 			}
 			else System.out.println(dayOfMonth + "/" + month + "/" + year);
 			advance();
@@ -46,7 +51,7 @@ public class Calendar1
 				month=1;
 				year++;
 			}
-			if (dayOfWeek>6)
+			if (dayOfWeek>=7)
 			{
 				dayOfWeek=1;
 			}
@@ -57,6 +62,10 @@ public class Calendar1
     // Returns true if the given year is a leap year, false otherwise.
 	private static boolean isLeapYear(int year) 
 	{
+		if(year==1900)
+		{
+			return false;
+		}
 	    if (year%4==0)
 		{
 			if (year%100==0)
